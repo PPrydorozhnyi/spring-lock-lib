@@ -8,16 +8,40 @@
         <version>2.5.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.petro</groupId>
+    <groupId>com.prydorozhnyi</groupId>
     <artifactId>lock-lib</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>spring-lock-lib</name>
     <description>Distributed locks lib</description>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/PPrydorozhnyi/spring-lock-lib</url>
+        <connection>scm:git:git://github.com/PPrydorozhnyi/spring-lock-lib.git</connection>
+        <developerConnection>scm:git:git@github.com/PPrydorozhnyi/spring-lock-lib.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>petro.prydorozhnyi@gmail.com</email>
+            <name>Petro Prydorozhnyi</name>
+            <url>https://github.com/PPrydorozhnyi</url>
+            <id>PPrydorozhnyi</id>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>11</java.version>
         <aspectj.version>1.9.6</aspectj.version>
         <redisson.version>3.15.6</redisson.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -47,5 +71,23 @@
             <version>${redisson.version}</version>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/PPrydorozhnyi/spring-lock-lib</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

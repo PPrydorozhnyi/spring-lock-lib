@@ -5,7 +5,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Lock {
@@ -14,6 +13,8 @@ public @interface Lock {
    * Type of lock.
    *
    * <p>"Player", "Department".
+   *
+   * @return type
    */
   String type();
 
@@ -24,12 +25,16 @@ public @interface Lock {
    * <p>Better to use reasonable number of parameters.
    *
    * <p>params = {"#request.deptId","#request.playerID", @someCoolBean.coolMethod()}</p>
-   * <p>params = {"#c.list.![b.id]","#id", "#potatoId, 2 > 1 ? 'a' : 'b'"}</p>
+   * <p>params = {"#c.list.![b.id]","#id", "#potatoId, 2 &lt; 1 ? 'a' : 'b'"}</p>
+   *
+   * @return params
    */
   String[] params() default {};
 
   /**
    * Duration of lock. In milliseconds.
+   *
+   * @return duration of lock
    */
   int duration() default -1;
 
